@@ -48,11 +48,11 @@ export const DesignTask = () => {
         <p>Add task</p>
       </div>
       <div className="uncompleted-task">
-        <p>Tasks-{designTaskUncompleted.length}</p>
+        <p>Tasks-{designTaskUncompleted.length||0}</p>
         {designTaskUncompleted}
       </div>
       <div className="completed-task">
-        <p>Completed-{designTaskCompleted}</p>
+        <p>Completed-{designTaskCompleted.length||0}</p>
         {designTaskCompleted}
       </div>
     </div>

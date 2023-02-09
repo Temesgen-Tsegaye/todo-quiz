@@ -49,11 +49,11 @@ export const PersonalTask = () => {
         <p>Add task</p>
       </div>
       <div className="uncompleted-task">
-        <p>Tasks-{personalTaskUncompleted}</p>
+        <p>Tasks-{personalTaskUncompleted.length||0}</p>
         {personalTaskUncompleted}
       </div>
       <div className="completed-task">
-        <p>Completed-{personalTaskUncompleted}</p>
+        <p>Completed-{personalTaskUncompleted.length||0}</p>
         {personalTaskCompleted}
       </div>
     </div>

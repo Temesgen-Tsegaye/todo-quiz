@@ -48,11 +48,11 @@ export const GroceryTask = () => {
         <p>Add task</p>
       </div>
       <div className="uncompleted-task">
-        <p>Tasks-{groTaskUncompleted.length}</p>
+        <p>Tasks-{groTaskUncompleted.length||0}</p>
         {groTaskUncompleted}
       </div>
       <div className="completed-task">
-        <p>Completed-{groTaskCompleted.length}</p>
+        <p>Completed-{groTaskCompleted.length||0}</p>
         {groTaskCompleted}
       </div>
     </div>

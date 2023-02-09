@@ -48,12 +48,12 @@ export const SchoolTask = () => {
         <p>Add task</p>
       </div>
       <div className="uncompleted-task">
-        <p>Tasks-{schoolTaskUncompleted.length}</p>
+        <p>Tasks-{schoolTaskUncompleted.length||0}</p>
         {schoolTaskUncompleted}
 
       </div>
       <div className="completed-task">
-        <p>Completed-{schoolTaskCompleted.length}</p>
+        <p>Completed-{schoolTaskCompleted.length||0}</p>
         {schoolTaskCompleted}
 
       </div>

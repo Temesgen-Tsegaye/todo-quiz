@@ -362,7 +362,8 @@ gap: 2.5rem;
   width: 100%;
   border-radius: 10px;
   padding: 0.5rem 1rem 0.5rem 1rem;
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 1.3rem;
 
 }
 .single-task-top{
@@ -532,6 +533,11 @@ option:hover{
   font-size: 1rem;
   font-weight: 600;
 
+}
+.strike{
+  text-decoration: line-through;
+  text-decoration-color: red;
+  text-decoration-style: wavy;
 }
 /* Themes */
 

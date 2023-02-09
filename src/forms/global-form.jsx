@@ -2,7 +2,7 @@ import {FaFlag} from 'react-icons/fa'
 import {TaskContext} from '../App'
 import {useContext,useState} from 'react'
 import axios from "axios";
-export const GlobalForm = ({dark}) => {
+export const GlobalForm = ({dark,ToggleForm}) => {
 
     const {task,setTask}=useContext(TaskContext)
     const [singleTask,setSingleTask]=useState({
@@ -17,10 +17,14 @@ export const GlobalForm = ({dark}) => {
           return { ...prive, [e.target.name]: e.target.value };
         });
       };
+
       async function  PostTask () {
         const response = await axios.post("http://localhost:3001/task",singleTask)
-        await setTask([...task,response])
-        console.log(task)
+        console.log(response.data)
+        const res2=await axios.get('http://localhost:3001/task')
+        setTask(res2.data)
+        console.log(`task ${task}`)
+
       }
 
   return (
@@ -47,8 +51,8 @@ export const GlobalForm = ({dark}) => {
         <FaFlag className='fa-flag'/>
       </div>
       <div >
-        <button className='task-add' onClick={()=>{PostTask()}}>Add</button>
-        <button className='task-cancel'>cancel</button>
+        <button className='task-add' onClick={()=>{PostTask();ToggleForm()}}>Add</button>
+        <button className='task-cancel' onClick={()=>{ToggleForm()}}>cancel</button>
       </div> 
     </div>
   

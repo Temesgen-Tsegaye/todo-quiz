@@ -54,7 +54,7 @@ export const CollectionSummary = ({task}) => {
               <p>{schoolTaskCompleted.length}/{schoolTask.length} done</p>
             </div>
             <div className="circle-container">
-              <CircularProgressbar value={5} text={"k"} />
+              <CircularProgressbar value={(schoolTaskCompleted.length/schoolTask.length)*100||0}  />
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@ export const CollectionSummary = ({task}) => {
               <p>{personalTaskCompleted.length}/{personalTask.length} done</p>
             </div>
             <div className="circle-container">
-              <CircularProgressbar value={5} text={"k"} />
+              <CircularProgressbar value={(personalTaskCompleted.length/personalTask.length)*100||0}  />
             </div>
           </div>
         </div>
@@ -78,7 +78,7 @@ export const CollectionSummary = ({task}) => {
               <p>{designTaskCompleted.length}/{designTask.length} done</p>
             </div>
             <div className="circle-container">
-              <CircularProgressbar value={5} text={"k"} />
+              <CircularProgressbar value={(designTaskCompleted.length/designTask.length)*100||0}  />
             </div>
           </div>
         </div>
@@ -90,7 +90,7 @@ export const CollectionSummary = ({task}) => {
               <p>{groceryTaskCompleted.length}/{groceryTask.length} done</p>
             </div>
             <div className='circle-container'>
-              <CircularProgressbar value={5} text={"k"} />
+              <CircularProgressbar value={(groceryTaskCompleted.length/groceryTask.length)*100||0}  />
             </div>
           </div>
         </div>

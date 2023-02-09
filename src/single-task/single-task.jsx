@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { ThemeContext } from "../App";
 import { TaskContext } from "../App";
 import { useEffect } from "react";
+import { useLongPress } from 'use-long-press';
 
 export const SingleTask = ({id,completed,title,date,collectionId}) => {
   const [collapse, setCollapse] = useState(true);
@@ -12,7 +13,15 @@ export const SingleTask = ({id,completed,title,date,collectionId}) => {
   const { task, setTask } = useContext(TaskContext);
   
    
-console.log(`completed ${completed}`)
+  const bind = useLongPress(() => {
+    const filterd=task.filter((item)=>{
+      return item.id!=id
+    })
+    setTask(filterd)
+axios.delete(`http://localhost:3001/task/${id}`)
+    
+ 
+  },{threshold: 1000,});
 
   async function UpdateTask() {
 
@@ -52,13 +61,14 @@ console.log(`task${task}`)
   },[task])
 
   return (
-    <div className={`single-task ${dark ? "nav-dark" : "nav-light"}`}>
+    <div className={`single-task ${dark ? "nav-dark" : "nav-light"}`}  {...bind()}>
+      
       <div className="single-task-top">
-        <input type="checkbox" onChange={() => {UpdateTask()}} checked={Boolean(completed)}   /> <p>{title}</p>{" "}
+        <input type="checkbox" onChange={() => {UpdateTask()}} checked={Boolean(completed)}   /> <p className={`${completed?'strike':''}`} >{title}</p>{" "}
         <FaAngleUp
           className={`task-collapse-arrow ${
             collapse ? "task-collapse-arrow-up" : "task-collapse-arrow-down"
-          }`}
+          } `}
           onClick={() => {
             setCollapse(!collapse);
           }}

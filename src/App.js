@@ -22,6 +22,7 @@ function App() {
 })
 
 
+
 const [task,setTask]=useState([])
 
   const [dark, setDark] = useState(false);
@@ -51,7 +52,7 @@ initialize().then((res)=>{setTask(res)})
         <Body task={task}/>
        
         
-       {formToggle&&<GlobalForm dark={dark} />}
+       {formToggle&&<GlobalForm ToggleForm={ToggleForm}  dark={dark} />}
          
     
       </div>
