@@ -8,7 +8,7 @@ export const GlobalForm = ({dark}) => {
     const [singleTask,setSingleTask]=useState({
         title:'',
         date:'',
-        collectionId:'',
+        collectionId:1,
         completed:false,
     })
     const handleTask = (e) => {

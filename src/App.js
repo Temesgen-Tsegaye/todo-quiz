@@ -1,9 +1,10 @@
 import "./App.css";
-import { useState, createContext } from "react";
+import { useState, createContext ,useEffect} from "react";
 import { NavBar } from "./nav-bar/NavBar";
 import {SideBar} from './side-bar/SideBar'
 import {Body} from './body/Body'
 import {GlobalForm} from './forms/global-form'
+import axios from 'axios'
 
 export const ThemeContext = createContext();
 export const ToggleContext=createContext();
@@ -19,12 +20,24 @@ function App() {
     personal:false,
     school:false,
 })
+
+
 const [task,setTask]=useState([])
-console.log(task)
+
   const [dark, setDark] = useState(false);
 
   const ToggleForm=()=>{
    setFormToggle(!formToggle)
+
+  }
+
+  useEffect(()=>{
+initialize().then((res)=>{setTask(res)})
+  },[])
+  const initialize= async ()=>{
+    const responce= await axios.get(`http://localhost:3001/task`)
+    return responce.data
+
   }
 
   return (
